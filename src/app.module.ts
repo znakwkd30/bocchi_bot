@@ -19,8 +19,7 @@ import { HealthController } from './controllers/health.controller';
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: 'env/.env',
-      ignoreEnvFile: process.env.ENV !== 'local'
+      envFilePath: process.env.ENV !== 'local' ? 'env/.env' : 'env/dv.env'
     }),
     LoggerModule.forRoot({
       pinoHttp: {

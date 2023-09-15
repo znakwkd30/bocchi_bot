@@ -17,9 +17,11 @@ async function bootstrap() {
     res.status(200).send('pong');
   });
 
-  await app.listen(3333);
+  const port = process.env.ENV === 'prod' ? 3334 : 3333;
 
-  console.log('server start');
+  await app.listen(port);
+
+  console.log(`server start ${port}`);
 }
 
 bootstrap();
