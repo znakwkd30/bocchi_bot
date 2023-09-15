@@ -73,4 +73,16 @@ export class StudyController {
       say(`<@${message['user']}> 今日の勉強もお疲れ様でした。 1일째`);
     }
   }
+
+  @Message('!정산')
+  async totalStudies({ say, message }: SlackEventMiddlewareArgs) {
+    if (this.studies[message['user']]) {
+      //TODO: 등수까지 확인 가능하게 수정
+      const studyData = JSON.parse(this.studies[message['user']]);
+
+      say(`${studyData.studyDate.length}日勉強したよ！ これからも頑張ってね`);
+    } else {
+      say('勉強したことがない。 早く勉強して');
+    }
+  }
 }
