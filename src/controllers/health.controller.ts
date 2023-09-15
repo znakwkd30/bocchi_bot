@@ -14,7 +14,8 @@ export class HealthController {
       ':bocchi:',
       ':bocchi-panic:',
       ':bocchi-panic2:',
-      ':bocchi-panic3:'
+      ':bocchi-panic3:',
+      ':bocchi-in-the-box:'
     ];
   }
 
