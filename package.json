@@ -27,6 +27,7 @@
     "@nestjs/core": "^9.2.1",
     "@nestjs/event-emitter": "^2.0.2",
     "@nestjs/platform-express": "^9.2.1",
+    "@nestjs/schedule": "^3.0.3",
     "@nestjs/typeorm": "^9.0.1",
     "@slack/bolt": "^3.13.3",
     "@slack/rtm-api": "^6.1.1",
