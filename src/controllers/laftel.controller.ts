@@ -5,13 +5,12 @@ import { SayFn, SlackEventMiddlewareArgs } from '@slack/bolt';
 
 @Controller()
 export class LaftelController {
-  constructor() {}
-
   @Message('!애니')
   async animeRank({ say }: SlackEventMiddlewareArgs) {
-    const random = Math.floor(Math.random() * 60);
+    // 2023-09-15 기준 max
+    const max = Math.floor(Math.random() * 2764);
     const result = await axios.get(
-      'https://laftel.net/api/search/v1/discover/?sort=rank&viewable=true&offset=0&size=60',
+      `https://laftel.net/api/search/v1/discover/?sort=rank&viewable=true&offset=${max}&size=60`,
       {
         headers: {
           'Content-Type': 'application/json'
@@ -19,7 +18,10 @@ export class LaftelController {
       }
     );
 
-    const anime = result.data.results[random];
+    const anime =
+      result.data.results[
+        Math.floor(Math.random() * result.data.results.length)
+      ];
 
     await say({
       text: `${anime.name} [${anime.genres}]`,
