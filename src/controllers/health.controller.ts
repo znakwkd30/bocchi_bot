@@ -4,7 +4,7 @@ import { SlackEventMiddlewareArgs } from '@slack/bolt';
 
 @Controller()
 export class HealthController {
-  private readonly dialogues = [];
+  private readonly dialogues: string[];
 
   constructor() {
     this.dialogues = [
