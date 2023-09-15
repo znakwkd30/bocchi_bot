@@ -6,6 +6,7 @@ import {
 } from '@nestjs/common';
 import { HttpAdapterHost } from '@nestjs/core';
 import { ConfigModule } from '@nestjs/config';
+import { ScheduleModule } from '@nestjs/schedule';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 import { LoggerModule } from 'nestjs-pino';
 import { SlackModule } from 'nestjs-slack-bolt';
@@ -15,6 +16,7 @@ import { SlackRedisModule } from './redis/slack-redis.module';
 import { LaftelController } from './controllers/laftel.controller';
 import { HealthController } from './controllers/health.controller';
 import { CommandController } from './controllers/command.controller';
+import { FamousSayingController } from './controllers/famous-saying.controller';
 
 @Module({
   imports: [
@@ -29,6 +31,7 @@ import { CommandController } from './controllers/command.controller';
     }),
     EventEmitterModule.forRoot(),
     SlackRedisModule.forRoot(),
+    ScheduleModule.forRoot(),
     SlackModule
   ],
   controllers: [
@@ -36,7 +39,8 @@ import { CommandController } from './controllers/command.controller';
     StudyController,
     LaftelController,
     HealthController,
-    CommandController
+    CommandController,
+    FamousSayingController
   ],
   providers: []
 })
