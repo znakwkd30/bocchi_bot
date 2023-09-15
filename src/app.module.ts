@@ -14,6 +14,7 @@ import { StudyController } from './controllers/study.controller';
 import { SlackRedisModule } from './redis/slack-redis.module';
 import { LaftelController } from './controllers/laftel.controller';
 import { HealthController } from './controllers/health.controller';
+import { CommandController } from './controllers/command.controller';
 
 @Module({
   imports: [
@@ -34,7 +35,8 @@ import { HealthController } from './controllers/health.controller';
     JapaneseController,
     StudyController,
     LaftelController,
-    HealthController
+    HealthController,
+    CommandController
   ],
   providers: []
 })
