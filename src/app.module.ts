@@ -13,6 +13,7 @@ import { JapaneseController } from './controllers/japanese.controller';
 import { StudyController } from './controllers/study.controller';
 import { SlackRedisModule } from './redis/slack-redis.module';
 import { LaftelController } from './controllers/laftel.controller';
+import { HealthController } from './controllers/health.controller';
 
 @Module({
   imports: [
@@ -27,10 +28,15 @@ import { LaftelController } from './controllers/laftel.controller';
       }
     }),
     EventEmitterModule.forRoot(),
-    SlackModule,
-    SlackRedisModule.forRoot()
+    SlackRedisModule.forRoot(),
+    SlackModule
   ],
-  controllers: [JapaneseController, StudyController, LaftelController],
+  controllers: [
+    JapaneseController,
+    StudyController,
+    LaftelController,
+    HealthController
+  ],
   providers: []
 })
 export class AppModule implements NestModule, OnApplicationBootstrap {
