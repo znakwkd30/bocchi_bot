@@ -17,6 +17,7 @@ import { LaftelController } from './controllers/laftel.controller';
 import { HealthController } from './controllers/health.controller';
 import { CommandController } from './controllers/command.controller';
 import { FamousSayingController } from './controllers/famous-saying.controller';
+import { JlptTestController } from './controllers/jlpt-test.controller';
 
 @Module({
   imports: [
@@ -40,7 +41,8 @@ import { FamousSayingController } from './controllers/famous-saying.controller';
     LaftelController,
     HealthController,
     CommandController,
-    FamousSayingController
+    FamousSayingController,
+    JlptTestController
   ],
   providers: []
 })
