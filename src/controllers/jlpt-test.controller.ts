@@ -13,11 +13,12 @@ export class JlptTestController {
 
   @Message('!디데이')
   async dDday({ say }: SlackEventMiddlewareArgs) {
-    const dday =
+    const dday = Math.ceil(
       DateTime.fromISO(this.testday)
         .diff(DateTime.local())
         .get('milliseconds') /
-      (1000 * 60 * 60 * 24);
+        (1000 * 60 * 60 * 24)
+    );
     await say(
       `2023년도 제 2회 JLPT 시험일 12월 3일(일요일) 까지 ${dday}일 남았습니다.`
     );
